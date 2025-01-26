@@ -1,0 +1,81 @@
+{
+  "name": "bluefin",
+  "version": "0.0.1",
+  "description": "bluefin - An Anansi project",
+  "scripts": {
+    "lint": "eslint src --quiet",
+    "format": "npm run lint --fix",
+    "test:type": "tsc",
+    "start": "webpack serve --mode=development",
+    "start:server": "serve dist",
+    "build": "webpack --mode=production",
+    "build:analyze": "webpack --mode=production --env analyze",
+    "build:profile": "webpack --mode=production --env profile",
+    "test:pkg": "webpack --env check=nobuild",
+    "postinstall": "rm -rf node_modules/.cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ntucker/bluefin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ntucker/bluefin/issues"
+  },
+  "homepage": "https://github.com/ntucker/bluefin#readme",
+  "keywords": [
+    "anansi"
+  ],
+  "browserslist": [
+    "extends @anansi/browserslist-config"
+  ],
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "stackblitz": {
+    "startCommand": "yarn start"
+  },
+  "devDependencies": {
+    "@anansi/babel-preset": "6.1.0",
+    "@anansi/browserslist-config": "1.6.0",
+    "@anansi/eslint-plugin": "1.0.24",
+    "@anansi/webpack-config": "20.0.17",
+    "@babel/core": "7.26.7",
+    "@data-client/test": "0.14.17",
+    "@linaria/core": "6.2.0",
+    "@linaria/react": "6.2.1",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "eslint": "^9.0.0",
+    "globals": "15.14.0",
+    "prettier": "^3.0.0",
+    "react-refresh": "0.16.0",
+    "serve": "14.2.4",
+    "typescript": "5.7.3",
+    "webpack": "5.97.1",
+    "webpack-cli": "6.0.1",
+    "webpack-dev-server": "5.2.0"
+  },
+  "dependencies": {
+    "@anansi/router": "0.10.11",
+    "@babel/runtime-corejs3": "7.26.7",
+    "@data-client/img": "0.14.15",
+    "@data-client/react": "0.14.18",
+    "@data-client/rest": "0.14.18",
+    "core-js": "3.40.0",
+    "history": "5.3.0",
+    "idb": "^8.0.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "private": true,
+  "license": "Apache-2.0",
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
+  "packageManager": "yarn@4.6.0+sha512.5383cc12567a95f1d668fbe762dfe0075c595b4bfff433be478dbbe24e05251a8e8c3eb992a986667c1d53b6c3a9c85b8398c35a960587fbd9fa3a0915406728"
+}
