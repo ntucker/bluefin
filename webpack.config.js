@@ -4,12 +4,12 @@ const options = {
   basePath: 'src',
   buildDir: 'dist/',
   serverDir: 'dist-server/',
-  
-  htmlOptions: { title: 'bluefin', scriptLoading: 'defer', template: 'index.ejs' },
+  htmlOptions: {
+    title: 'bluefin',
+    scriptLoading: 'defer',
+    template: 'index.ejs',
+  },
   globalStyleDir: 'style',
-  
-  sassOptions: false,
-  
 };
 
 const generateConfig = makeConfig(options);

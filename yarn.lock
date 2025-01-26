@@ -1625,6 +1625,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bufbuild/protobuf@npm:^2.0.0":
+  version: 2.2.3
+  resolution: "@bufbuild/protobuf@npm:2.2.3"
+  checksum: 10c0/546c38b924c4a8dd79ec457928cfb99a5aab2945d11f15f4f06894bdc148ea37a1ae8b78cf17de9bb5354cbb896f6af4099073690b5b2089e1b196cec963d6ec
+  languageName: node
+  linkType: hard
+
 "@csstools/cascade-layer-name-parser@npm:^2.0.4":
   version: 2.0.4
   resolution: "@csstools/cascade-layer-name-parser@npm:2.0.4"
@@ -2256,22 +2263,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^1.2.0":
-  version: 1.3.1
-  resolution: "@emotion/is-prop-valid@npm:1.3.1"
-  dependencies:
-    "@emotion/memoize": "npm:^0.9.0"
-  checksum: 10c0/123215540c816ff510737ec68dcc499c53ea4deb0bb6c2c27c03ed21046e2e69f6ad07a7a174d271c6cfcbcc9ea44e1763e0cf3875c92192f7689216174803cd
-  languageName: node
-  linkType: hard
-
-"@emotion/memoize@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "@emotion/memoize@npm:0.9.0"
-  checksum: 10c0/13f474a9201c7f88b543e6ea42f55c04fb2fdc05e6c5a3108aced2f7e7aa7eda7794c56bba02985a46d8aaa914fcdde238727a98341a96e2aec750d372dadd15
-  languageName: node
-  linkType: hard
-
 "@eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.4.0":
   version: 4.4.1
   resolution: "@eslint-community/eslint-utils@npm:4.4.1"
@@ -2523,33 +2514,6 @@ __metadata:
   version: 2.0.5
   resolution: "@leichtgewicht/ip-codec@npm:2.0.5"
   checksum: 10c0/14a0112bd59615eef9e3446fea018045720cd3da85a98f801a685a818b0d96ef2a1f7227e8d271def546b2e2a0fe91ef915ba9dc912ab7967d2317b1a051d66b
-  languageName: node
-  linkType: hard
-
-"@linaria/core@npm:6.2.0, @linaria/core@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "@linaria/core@npm:6.2.0"
-  dependencies:
-    "@wyw-in-js/processor-utils": "npm:^0.5.3"
-  checksum: 10c0/4eb6083c0988f19aa3721e34bf14093dab8a0c6a784237ae4276a0b4e68bb82e91c594d7dd1d12173aaa2b38400a6bf5e0bd8b961a9ae05cdba854e2c566a134
-  languageName: node
-  linkType: hard
-
-"@linaria/react@npm:6.2.1":
-  version: 6.2.1
-  resolution: "@linaria/react@npm:6.2.1"
-  dependencies:
-    "@emotion/is-prop-valid": "npm:^1.2.0"
-    "@linaria/core": "npm:^6.2.0"
-    "@wyw-in-js/processor-utils": "npm:^0.5.3"
-    "@wyw-in-js/shared": "npm:^0.5.3"
-    minimatch: "npm:^9.0.3"
-    react-html-attributes: "npm:^1.4.6"
-    resolve: "npm:^1.22.8"
-    ts-invariant: "npm:^0.10.3"
-  peerDependencies:
-    react: ">=16"
-  checksum: 10c0/102480195bc6e5f41cf3da4c7181640cf617256fcdd48847238cdc7def30536f132f29f35530bd261cbf5580a87981f5a6f7717e791b73cc309552141a10d256
   languageName: node
   linkType: hard
 
@@ -3790,7 +3754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wyw-in-js/processor-utils@npm:0.5.5, @wyw-in-js/processor-utils@npm:^0.5.3":
+"@wyw-in-js/processor-utils@npm:0.5.5":
   version: 0.5.5
   resolution: "@wyw-in-js/processor-utils@npm:0.5.5"
   dependencies:
@@ -3800,7 +3764,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wyw-in-js/shared@npm:0.5.5, @wyw-in-js/shared@npm:^0.5.3":
+"@wyw-in-js/shared@npm:0.5.5":
   version: 0.5.5
   resolution: "@wyw-in-js/shared@npm:0.5.5"
   dependencies:
@@ -4542,8 +4506,6 @@ __metadata:
     "@data-client/react": "npm:0.14.18"
     "@data-client/rest": "npm:0.14.18"
     "@data-client/test": "npm:0.14.17"
-    "@linaria/core": "npm:6.2.0"
-    "@linaria/react": "npm:6.2.1"
     "@types/react": "npm:19.0.8"
     "@types/react-dom": "npm:19.0.3"
     core-js: "npm:3.40.0"
@@ -4555,6 +4517,7 @@ __metadata:
     react: "npm:19.0.0"
     react-dom: "npm:19.0.0"
     react-refresh: "npm:0.16.0"
+    sass-embedded: "npm:^1.83.4"
     serve: "npm:14.2.4"
     typescript: "npm:5.7.3"
     webpack: "npm:5.97.1"
@@ -4751,6 +4714,13 @@ __metadata:
   bin:
     browserslist: cli.js
   checksum: 10c0/db7ebc1733cf471e0b490b4f47e3e2ea2947ce417192c9246644e92c667dd56a71406cc58f62ca7587caf828364892e9952904a02b7aead752bc65b62a37cfe9
+  languageName: node
+  linkType: hard
+
+"buffer-builder@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "buffer-builder@npm:0.2.0"
+  checksum: 10c0/e50c3a379f4acaea75ade1ee3e8c07ed6d7c5dfc3f98adbcf0159bfe1a4ce8ca1fe3689e861fcdb3fcef0012ebd4345a6112a5b8a1185295452bb66d7b6dc8a1
   languageName: node
   linkType: hard
 
@@ -5114,6 +5084,13 @@ __metadata:
   version: 2.0.20
   resolution: "colorette@npm:2.0.20"
   checksum: 10c0/e94116ff33b0ff56f3b83b9ace895e5bf87c2a7a47b3401b8c3f3226e050d5ef76cf4072fb3325f9dc24d1698f9b730baf4e05eeaf861d74a1883073f4c98a40
+  languageName: node
+  linkType: hard
+
+"colorjs.io@npm:^0.5.0":
+  version: 0.5.2
+  resolution: "colorjs.io@npm:0.5.2"
+  checksum: 10c0/2e6ea43629e325e721b92429239de3a6f42fb6d88ba6e4c2aeff0288c196d876f2f7ee82aea95bd40072d5cdc8cb87f042f4d94c134dcabf0e34a717e4caacb9
   languageName: node
   linkType: hard
 
@@ -7632,13 +7609,6 @@ __metadata:
     readable-stream: "npm:^2.0.1"
     wbuf: "npm:^1.1.0"
   checksum: 10c0/55b9e824430bab82a19d079cb6e33042d7d0640325678c9917fcc020c61d8a08ca671b6c942c7f0aae9bb6e4b67ffb50734a72f9e21d66407c3138c1983b70f0
-  languageName: node
-  linkType: hard
-
-"html-element-attributes@npm:^1.0.0":
-  version: 1.3.1
-  resolution: "html-element-attributes@npm:1.3.1"
-  checksum: 10c0/caf9704577854275bfe4b6f5a77c9b5f2d988b6bc86f48aa1ee043421950c314c43d8f2915178f5cb7a00409e1f2690c1ddb0f4758f9d63b875172cbaa32bc9f
   languageName: node
   linkType: hard
 
@@ -11100,15 +11070,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-html-attributes@npm:^1.4.6":
-  version: 1.4.6
-  resolution: "react-html-attributes@npm:1.4.6"
-  dependencies:
-    html-element-attributes: "npm:^1.0.0"
-  checksum: 10c0/f2ef5b80c6254a0bc4cc802d7412bee0bd5008a1ac1a96eb52cdfde9b7e5017e9373ee613361d6c83df3faa8743c71fb42d1fb238bb797ece481d97848c02be2
-  languageName: node
-  linkType: hard
-
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -11532,6 +11493,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rxjs@npm:^7.4.0":
+  version: 7.8.1
+  resolution: "rxjs@npm:7.8.1"
+  dependencies:
+    tslib: "npm:^2.1.0"
+  checksum: 10c0/3c49c1ecd66170b175c9cacf5cef67f8914dcbc7cd0162855538d365c83fea631167cacb644b3ce533b2ea0e9a4d0b12175186985f89d75abe73dbd8f7f06f68
+  languageName: node
+  linkType: hard
+
 "safe-array-concat@npm:^1.1.3":
   version: 1.1.3
   resolution: "safe-array-concat@npm:1.1.3"
@@ -11584,6 +11554,225 @@ __metadata:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: 10c0/7e3c8b2e88a1841c9671094bbaeebd94448111dd90a81a1f606f3f67708a6ec57763b3b47f06da09fc6054193e0e6709e77325415dc8422b04497a8070fa02d4
+  languageName: node
+  linkType: hard
+
+"sass-embedded-android-arm64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-android-arm64@npm:1.83.4"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-android-arm@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-android-arm@npm:1.83.4"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"sass-embedded-android-ia32@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-android-ia32@npm:1.83.4"
+  conditions: os=android & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"sass-embedded-android-riscv64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-android-riscv64@npm:1.83.4"
+  conditions: os=android & cpu=riscv64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-android-x64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-android-x64@npm:1.83.4"
+  conditions: os=android & cpu=x64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-darwin-arm64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-darwin-arm64@npm:1.83.4"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-darwin-x64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-darwin-x64@npm:1.83.4"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-arm64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-arm64@npm:1.83.4"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-arm@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-arm@npm:1.83.4"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-ia32@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-ia32@npm:1.83.4"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-musl-arm64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-musl-arm64@npm:1.83.4"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-musl-arm@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-musl-arm@npm:1.83.4"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-musl-ia32@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-musl-ia32@npm:1.83.4"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-musl-riscv64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-musl-riscv64@npm:1.83.4"
+  conditions: os=linux & cpu=riscv64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-musl-x64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-musl-x64@npm:1.83.4"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-riscv64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-riscv64@npm:1.83.4"
+  conditions: os=linux & cpu=riscv64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-linux-x64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-linux-x64@npm:1.83.4"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-win32-arm64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-win32-arm64@npm:1.83.4"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"sass-embedded-win32-ia32@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-win32-ia32@npm:1.83.4"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"sass-embedded-win32-x64@npm:1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded-win32-x64@npm:1.83.4"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"sass-embedded@npm:^1.83.4":
+  version: 1.83.4
+  resolution: "sass-embedded@npm:1.83.4"
+  dependencies:
+    "@bufbuild/protobuf": "npm:^2.0.0"
+    buffer-builder: "npm:^0.2.0"
+    colorjs.io: "npm:^0.5.0"
+    immutable: "npm:^5.0.2"
+    rxjs: "npm:^7.4.0"
+    sass-embedded-android-arm: "npm:1.83.4"
+    sass-embedded-android-arm64: "npm:1.83.4"
+    sass-embedded-android-ia32: "npm:1.83.4"
+    sass-embedded-android-riscv64: "npm:1.83.4"
+    sass-embedded-android-x64: "npm:1.83.4"
+    sass-embedded-darwin-arm64: "npm:1.83.4"
+    sass-embedded-darwin-x64: "npm:1.83.4"
+    sass-embedded-linux-arm: "npm:1.83.4"
+    sass-embedded-linux-arm64: "npm:1.83.4"
+    sass-embedded-linux-ia32: "npm:1.83.4"
+    sass-embedded-linux-musl-arm: "npm:1.83.4"
+    sass-embedded-linux-musl-arm64: "npm:1.83.4"
+    sass-embedded-linux-musl-ia32: "npm:1.83.4"
+    sass-embedded-linux-musl-riscv64: "npm:1.83.4"
+    sass-embedded-linux-musl-x64: "npm:1.83.4"
+    sass-embedded-linux-riscv64: "npm:1.83.4"
+    sass-embedded-linux-x64: "npm:1.83.4"
+    sass-embedded-win32-arm64: "npm:1.83.4"
+    sass-embedded-win32-ia32: "npm:1.83.4"
+    sass-embedded-win32-x64: "npm:1.83.4"
+    supports-color: "npm:^8.1.1"
+    sync-child-process: "npm:^1.0.2"
+    varint: "npm:^6.0.0"
+  dependenciesMeta:
+    sass-embedded-android-arm:
+      optional: true
+    sass-embedded-android-arm64:
+      optional: true
+    sass-embedded-android-ia32:
+      optional: true
+    sass-embedded-android-riscv64:
+      optional: true
+    sass-embedded-android-x64:
+      optional: true
+    sass-embedded-darwin-arm64:
+      optional: true
+    sass-embedded-darwin-x64:
+      optional: true
+    sass-embedded-linux-arm:
+      optional: true
+    sass-embedded-linux-arm64:
+      optional: true
+    sass-embedded-linux-ia32:
+      optional: true
+    sass-embedded-linux-musl-arm:
+      optional: true
+    sass-embedded-linux-musl-arm64:
+      optional: true
+    sass-embedded-linux-musl-ia32:
+      optional: true
+    sass-embedded-linux-musl-riscv64:
+      optional: true
+    sass-embedded-linux-musl-x64:
+      optional: true
+    sass-embedded-linux-riscv64:
+      optional: true
+    sass-embedded-linux-x64:
+      optional: true
+    sass-embedded-win32-arm64:
+      optional: true
+    sass-embedded-win32-ia32:
+      optional: true
+    sass-embedded-win32-x64:
+      optional: true
+  bin:
+    sass: dist/bin/sass.js
+  checksum: 10c0/3a5d8f96cfefc79a04676294ee51eba7acd4219be71e261263a3c3c12600a5eb41adca8c6b3ee0426b6f6cfb9d8f7e54f7bc4f7573d196602c175eb190961522
   languageName: node
   linkType: hard
 
@@ -12394,7 +12583,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^8.0.0":
+"supports-color@npm:^8.0.0, supports-color@npm:^8.1.1":
   version: 8.1.1
   resolution: "supports-color@npm:8.1.1"
   dependencies:
@@ -12440,6 +12629,22 @@ __metadata:
   bin:
     svgo: ./bin/svgo
   checksum: 10c0/a6badbd3d1d6dbb177f872787699ab34320b990d12e20798ecae915f0008796a0f3c69164f1485c9def399e0ce0a5683eb4a8045e51a5e1c364bb13a0d9f79e1
+  languageName: node
+  linkType: hard
+
+"sync-child-process@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "sync-child-process@npm:1.0.2"
+  dependencies:
+    sync-message-port: "npm:^1.0.0"
+  checksum: 10c0/f73c87251346fba28da8ac5bc8ed4c9474504a5250ab4bd44582beae8e25c230e0a5b7b16076488fee1aed39a1865de5ed4cec19c6fa4efdbb1081c514615170
+  languageName: node
+  linkType: hard
+
+"sync-message-port@npm:^1.0.0":
+  version: 1.1.3
+  resolution: "sync-message-port@npm:1.1.3"
+  checksum: 10c0/d259b08ab6da284135ba45bc13724268688b469371259f5978b2905e2c79342032b9240093b2483e83cfeccfd3a5e8300978e67090385f9b6b38941fcce1aec4
   languageName: node
   linkType: hard
 
@@ -12942,6 +13147,13 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 10c0/bcbb807a917d374a49f475fae2e87fdca7da5e5530820ef53f65ba1d12131bd81a92ecf259cc7ce317cbe0f289e7d79fdfebcef9bfa3087c8c8a2fa304c9be54
+  languageName: node
+  linkType: hard
+
+"varint@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "varint@npm:6.0.0"
+  checksum: 10c0/737fc37088a62ed3bd21466e318d21ca7ac4991d0f25546f518f017703be4ed0f9df1c5559f1dd533dddba4435a1b758fd9230e4772c1a930ef72b42f5c750fd
   languageName: node
   linkType: hard
 
