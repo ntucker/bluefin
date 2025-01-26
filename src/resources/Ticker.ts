@@ -1,25 +1,35 @@
-import { Entity, RestEndpoint } from '@data-client/rest';
-import type { FixtureEndpoint } from '@data-client/test';
+import { Entity, RestEndpoint, schema } from '@data-client/rest';
+
+import { Stats } from './Stats';
 
 /*#__PURE__*/
 export class Ticker extends Entity {
   product_id = '';
   trade_id = 0;
   price = 0;
-  size = '0';
   time = new Date(0);
-  bid = '0';
-  ask = '0';
-  volume = '';
+  // last_size = '0';
+  // best_bid = '0';
+  // best_ask = '0';
+  // volume_24h = '';
+  // volume_30d = '';
+  open_24h = 0;
+
+  get gain_24() {
+    return (this.price - this.open_24h) / this.open_24h;
+  }
 
   pk(): string {
     return this.product_id;
   }
 
+  static key = 'ticker';
+
   // convert price to a float and time to a Date
   // see https://dataclient.io/rest/api/Entity#schema
   static schema = {
     price: Number,
+    open_24h: Number,
     time: (iso: string) => new Date(iso),
   };
 
@@ -32,42 +42,47 @@ export class Ticker extends Entity {
   ) {
     return existing.time > incoming.time;
   }
+
+  static process(
+    input: any,
+    parent: any,
+    key: string | undefined,
+    args: any[],
+  ): any {
+    const value = { ...input };
+    // sometimes product_id is not included in the API response
+    if (args[0].product_id) {
+      value.product_id = args[0].product_id;
+    }
+    // fallback to current price to show no gain if we don't have 24 hour
+    if (!value.open_24h) value.open_24h = value.price;
+    return value;
+  }
 }
 
-// Visit https://dataclient.io/rest/api/RestEndpoint to read more about these definitions
 export const getTicker = new RestEndpoint({
   urlPrefix: 'https://api.exchange.coinbase.com',
   path: '/products/:product_id/ticker',
   schema: Ticker,
-  process(value, { product_id }) {
-    value.product_id = product_id;
-    return value;
-  },
+  channel: 'ticker',
   pollFrequency: 2000,
+  dataExpiryLength: 5000,
 });
 
-export let TickerFixtures: Record<string, FixtureEndpoint> = {};
+/** Computes price; falling back to stats data
+ * Stats can be bulk-fetched which makes it good for list views
+ */
+export const queryPrice = new schema.Query(
+  { ticker: Ticker, stats: Stats },
+  ({ ticker, stats }) => ticker?.price ?? stats?.last,
+);
 
-// we don't want our mocks ending up in our production builds
-if (process.env.NODE_ENV !== 'production') {
-  TickerFixtures = {
-    get: {
-      endpoint: getTicker,
-      args: [
-        {
-          product_id: 'BTC-USD',
-        },
-      ],
-      response: {
-        product_id: 'BTC-USD',
-        ask: '26035.14',
-        bid: '26035.13',
-        volume: '9948.18263564',
-        trade_id: 557935313,
-        price: '26035.14',
-        size: '0.00947072',
-        time: '2023-08-24T21:02:36.896714Z',
-      },
-    },
-  };
-}
+/** Computes 24 hour gain; falling back to stats data
+ * Stats can be bulk-fetched which makes it good for list views
+ */
+export const queryGain24 = new schema.Query(
+  { ticker: Ticker, stats: Stats },
+  ({ ticker, stats }) => {
+    return ticker?.gain_24 ?? stats?.gain_24 ?? 0;
+  },
+);
