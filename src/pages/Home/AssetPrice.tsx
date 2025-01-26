@@ -4,7 +4,7 @@ import { getTicker } from '@/resources/Ticker';
 
 /** Shows the current trading price for a given asset */
 export default function AssetPrice({ symbol }: Props) {
-  const product_id = `${symbol}-USD`
+  const product_id = `${symbol}-USD`;
   // Learn more about Reactive Data Client: https://dataclient.io/docs
   const ticker = useLive(getTicker, { product_id });
   const displayPrice = formatPrice.format(ticker.price);
@@ -21,4 +21,4 @@ export interface Props {
 const formatPrice = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
-})
+});

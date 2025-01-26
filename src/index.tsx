@@ -1,10 +1,11 @@
 import ReactDOM from 'react-dom/client';
 
-import RootProvider from './RootProvider';
 import App from './App';
+import getManagers from './getManagers';
+import RootProvider from './RootProvider';
 
 const content = (
-  <RootProvider>
+  <RootProvider managers={getManagers()}>
     <App />
   </RootProvider>
 );

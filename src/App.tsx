@@ -1,13 +1,10 @@
-import { memo } from 'react';
 import { MatchedRoute } from '@anansi/router';
-import { AsyncBoundary } from '@data-client/react';
-
-
+import { AsyncBoundary, getDefaultManagers } from '@data-client/react';
 import { css } from '@linaria/core';
+import { memo } from 'react';
+
 import '@/style/main.css';
-
-
-
+import { StreamManager } from './resources/StreamManager';
 
 const margin = '8px';
 
@@ -30,7 +27,6 @@ const home = css`
     margin-top: 20px;
   }
 `;
-
 
 // Typically place global navigation and routing layer in here
 function App() {

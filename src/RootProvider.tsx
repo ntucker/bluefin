@@ -1,7 +1,12 @@
-import { DataProvider, useController, AsyncBoundary, ProviderProps } from '@data-client/react';
 import { RouteProvider } from '@anansi/router';
-import type { ReactNode } from 'react';
+import {
+  DataProvider,
+  useController,
+  AsyncBoundary,
+  ProviderProps,
+} from '@data-client/react';
 import { createBrowserHistory } from 'history';
+import type { ReactNode } from 'react';
 
 import { createRouter } from '@/routing';
 
