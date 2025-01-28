@@ -1,15 +1,10 @@
-import AssetPrice from './AssetPrice';
+import AllCurrencies from './AllCurrencies';
 
 export default function Home() {
   return (
     <>
-      <p style={{ fontSize: '15px' }}>
-        Check out the generated ReadMe for instructions on how to use this
-        library
-      </p>
-      <p style={{ fontSize: '24px' }}>
-        <AssetPrice symbol="BTC" />
-      </p>
+      <h1>Bluefin</h1>
+      <AllCurrencies />
     </>
   );
 }
