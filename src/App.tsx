@@ -1,30 +1,13 @@
-import { Link, MatchedRoute } from '@anansi/router';
+import { MatchedRoute } from '@anansi/router';
 import { AsyncBoundary } from '@data-client/react';
-import { Flex, Layout } from 'antd';
+import { Layout } from 'antd';
 import { memo } from 'react';
 
 import '@/style/main.css';
 import HoldingsList from '@/components/Holdings/HoldingsList';
+import NavBar from '@/components/NavBar';
 
-const { Header, Footer, Sider, Content } = Layout;
-
-const headerStyle: React.CSSProperties = {
-  textAlign: 'center',
-  height: 64,
-  paddingInline: 48,
-  lineHeight: '64px',
-  // color: '#fff',
-  // backgroundColor: '#4096ff',
-};
-
-const contentStyle: React.CSSProperties = {
-  textAlign: 'center',
-  minHeight: 120,
-};
-
-const footerStyle: React.CSSProperties = {
-  textAlign: 'center',
-};
+const { Sider, Content } = Layout;
 
 const layoutStyle = {
   overflow: 'hidden',
@@ -36,11 +19,17 @@ const layoutStyle = {
 function App() {
   return (
     <Layout style={layoutStyle}>
-      <Header style={headerStyle}>
-        <Link name="Home">Bluefin trading</Link>
-      </Header>
-      <Layout>
-        <Content style={contentStyle}>
+      <NavBar />
+      <Layout style={{ background: 'white' }}>
+        <Content
+          style={{
+            background: '#fff',
+            padding: 24,
+            margin: 0,
+            minHeight: 280,
+            height: '100%',
+          }}
+        >
           <AsyncBoundary>
             <MatchedRoute index={0} />
           </AsyncBoundary>
@@ -49,7 +38,6 @@ function App() {
           <HoldingsList />
         </Sider>
       </Layout>
-      {/* <Footer style={footerStyle}>Bluefin footer</Footer> */}
     </Layout>
   );
 }

@@ -1,5 +1,6 @@
 import { Link } from '@anansi/router';
 import { useFetch, useSubscription, useSuspense } from '@data-client/react';
+import { Empty } from 'antd';
 import { memo } from 'react';
 
 import { CurrencyResource } from '@/resources/Currency';
@@ -13,6 +14,10 @@ import { Gain24 } from '../CurrencyList/AssetPrice';
 function HoldingsList() {
   useFetch(CurrencyResource.getList);
   const holdings = useSuspense(HoldingResource.getList);
+
+  if (!holdings?.length) {
+    return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
+  }
 
   return (
     <div className={styles.container}>

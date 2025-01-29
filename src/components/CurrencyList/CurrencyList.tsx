@@ -17,6 +17,7 @@ export function CurrencyList({ currencies }: { currencies: Currency[] }) {
       className={styles.table}
       columns={columns}
       dataSource={currencies}
+      rowKey="id"
       size="small"
       pagination={false}
       // virtual

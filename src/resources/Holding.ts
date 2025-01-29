@@ -77,4 +77,7 @@ export const HoldingResource = {
       name: `${Holding.key}.buy`,
     },
   ),
+  total: new schema.Query(new schema.All(Holding), holdings => {
+    return holdings.reduce((acc, a) => acc + a.value, 0);
+  }),
 };
