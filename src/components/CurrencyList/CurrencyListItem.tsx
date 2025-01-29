@@ -1,16 +1,14 @@
 import { Link } from '@anansi/router';
-import { useController } from '@data-client/react';
 import { memo } from 'react';
 
 import { type Currency } from '@/resources/Currency';
-import { HoldingResource } from '@/resources/Holding';
 
 import { Price, Gain24 } from './AssetPrice';
 import * as styles from './CurrencyList.module.scss';
 import { formatLargePrice } from '../formatters';
+import TradeButtons from '../TradeButtons';
 
 function CurrencyListItem({ currency }: { currency: Currency }) {
-  const ctrl = useController();
   return (
     <tr>
       <td>
@@ -35,14 +33,7 @@ function CurrencyListItem({ currency }: { currency: Currency }) {
         <Gain24 product_id={`${currency.id}-USD`} />
       </td>
       <td>
-        <button onClick={() => ctrl.fetch(HoldingResource.buy, currency.id, 1)}>
-          Buy
-        </button>
-        <button
-          onClick={() => ctrl.fetch(HoldingResource.buy, currency.id, -1)}
-        >
-          Sell
-        </button>
+        <TradeButtons currency={currency} small />
       </td>
       <td>{currency.holding?.amount}</td>
     </tr>

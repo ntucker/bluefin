@@ -1,5 +1,6 @@
 import { AsyncBoundary, useSuspense } from '@data-client/react';
 
+import TradeButtons from '@/components/TradeButtons';
 import { CurrencyResource } from '@/resources/Currency';
 
 import { AssetChart } from './AssetChart';
@@ -15,6 +16,7 @@ export function CurrencyDetail({ width, height, id }: Props) {
     <>
       <title>{`${currency.name} Prices with Reactive Data Client`}</title>
       <header>
+        <TradeButtons currency={currency} />
         <h1>
           <img
             src={currency.icon}
