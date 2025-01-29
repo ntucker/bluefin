@@ -51,7 +51,7 @@ function App() {
             <MatchedRoute index={0} />
           </AsyncBoundary>
         </Content>
-        <Sider width="25%" style={siderStyle}>
+        <Sider width="250px">
           <HoldingsList />
         </Sider>
       </Layout>
