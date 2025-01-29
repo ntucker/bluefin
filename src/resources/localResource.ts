@@ -3,7 +3,6 @@ import {
   Endpoint,
   schema,
   Entity,
-  AbstractInstanceType,
   SnapshotInterface,
   Queryable,
 } from '@data-client/rest';
@@ -21,6 +20,10 @@ if (typeof window !== 'undefined') {
 } else {
   idb = Promise.resolve(undefined);
 }
+console.log('idb', idb);
+idb.then(db => {
+  console.log('done', db);
+});
 
 export function localResource<
   S extends typeof Entity,
@@ -36,7 +39,7 @@ export function localResource<
       schema,
       name: `${schema.key}.get`,
     }),
-    getList: new Endpoint(async () => (await idb)?.getAll(schema.key), {
+    getList: new Endpoint(async () => (await idb)?.getAll(schema.key) ?? [], {
       schema: getListSchema,
       name: `${schema.key}.getList`,
     }),

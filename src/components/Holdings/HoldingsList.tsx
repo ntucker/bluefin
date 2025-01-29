@@ -1,5 +1,10 @@
 import { Link } from '@anansi/router';
-import { useFetch, useSubscription, useSuspense } from '@data-client/react';
+import {
+  useFetch,
+  useQuery,
+  useSubscription,
+  useSuspense,
+} from '@data-client/react';
 import { Empty } from 'antd';
 import { memo } from 'react';
 
@@ -13,10 +18,15 @@ import { Gain24 } from '../CurrencyList/AssetPrice';
 
 function HoldingsList() {
   useFetch(CurrencyResource.getList);
-  const holdings = useSuspense(HoldingResource.getList);
+  useSuspense(HoldingResource.getList);
+  const holdings = useQuery(HoldingResource.queryHoldings);
 
   if (!holdings?.length) {
-    return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
+    return (
+      <div className={styles.container}>
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No holdings" />
+      </div>
+    );
   }
 
   return (

@@ -41,13 +41,7 @@ export class Holding extends Entity {
 }
 
 export const HoldingResource = {
-  ...localResource(Holding, {
-    getListSchema: new schema.Query(new schema.All(Holding), holdings => {
-      return [...holdings.filter(a => a.amount > 0)].sort(
-        (a, b) => b.value - a.value,
-      );
-    }),
-  }),
+  ...localResource(Holding),
   buy: new Endpoint(
     async (id: string, amount: number) => {
       const existing = await (await idb)?.get(Holding.key, id);
@@ -79,5 +73,10 @@ export const HoldingResource = {
   ),
   total: new schema.Query(new schema.All(Holding), holdings => {
     return holdings.reduce((acc, a) => acc + a.value, 0);
+  }),
+  queryHoldings: new schema.Query(new schema.All(Holding), holdings => {
+    return [...holdings.filter(a => a.amount > 0)].sort(
+      (a, b) => b.value - a.value,
+    );
   }),
 };

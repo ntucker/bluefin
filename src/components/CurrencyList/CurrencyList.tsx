@@ -79,7 +79,8 @@ function HoldingCell({ id }: { id: string }) {
   const holding = useQuery(Holding, { id });
   return (
     <>
-      {holding?.amount ?? ''} <TradeButtons id={id} small />
+      {holding?.amount && holding?.amount > 0 ? holding?.amount : ''}{' '}
+      <TradeButtons id={id} small />
     </>
   );
 }
