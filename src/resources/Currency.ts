@@ -56,6 +56,11 @@ export class Currency extends Entity {
   };
 }
 
+Holding.schema = {
+  ...Holding.schema,
+  currency: Currency,
+};
+
 export const CurrencyResource = resource({
   urlPrefix: 'https://api.exchange.coinbase.com',
   path: '/currencies/:id',

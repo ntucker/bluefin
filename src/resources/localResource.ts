@@ -1,3 +1,4 @@
+import { Schema } from '@data-client/react';
 import {
   Endpoint,
   schema,
@@ -21,14 +22,22 @@ if (typeof window !== 'undefined') {
   idb = Promise.resolve(undefined);
 }
 
-export function localResource<S extends typeof Entity>(schema: S) {
+export function localResource<
+  S extends typeof Entity,
+  SL extends Schema = schema.Collection<[S]>,
+>(
+  schema: S,
+  {
+    getListSchema = new Collection([schema]) as any as SL,
+  }: { getListSchema?: SL } = {},
+) {
   return {
     get: new Endpoint(async (id: string) => (await idb)?.get(schema.key, id), {
       schema,
       name: `${schema.key}.get`,
     }),
     getList: new Endpoint(async () => (await idb)?.getAll(schema.key), {
-      schema: new Collection([schema]),
+      schema: getListSchema,
       name: `${schema.key}.getList`,
     }),
     update: new Endpoint(
