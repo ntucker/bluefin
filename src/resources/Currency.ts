@@ -1,7 +1,6 @@
 import { Entity, resource, schema } from '@data-client/rest';
 
 import { iconTable } from './cryptoIconTable';
-import { Holding } from './Holding';
 import { Stats } from './Stats';
 
 /*#__PURE__*/
@@ -31,7 +30,6 @@ export class Currency extends Entity {
   default_network = 'ethereum';
   supported_networks: NetworkDetails[] = [];
   display_name = '';
-  holding? = Holding.fromJS();
 
   // faked for client-side join
   stats = Stats.fromJS();
@@ -47,19 +45,13 @@ export class Currency extends Entity {
     args: any[],
   ) {
     // enables client-side join with stats
-    return { ...input, stats: `${input.id}-USD`, holding: input.id };
+    return { ...input, stats: `${input.id}-USD` };
   }
 
   static schema = {
     stats: Stats,
-    holding: Holding,
   };
 }
-
-Holding.schema = {
-  ...Holding.schema,
-  currency: Currency,
-};
 
 export const CurrencyResource = resource({
   urlPrefix: 'https://api.exchange.coinbase.com',

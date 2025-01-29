@@ -16,7 +16,7 @@ export function CurrencyDetail({ width, height, id }: Props) {
     <>
       <title>{`${currency.name} Prices with Reactive Data Client`}</title>
       <header>
-        <TradeButtons currency={currency} />
+        <TradeButtons id={currency.id} />
         <h1>
           <img
             src={currency.icon}

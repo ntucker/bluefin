@@ -6,8 +6,7 @@ import {
   Schema,
 } from '@data-client/rest';
 
-// import { Currency } from './Currency';
-import { type Currency } from './Currency';
+import { Currency } from './Currency';
 import { idb, localResource } from './localResource';
 import { Ticker } from './Ticker';
 
@@ -24,6 +23,7 @@ export class Holding extends Entity {
 
   static schema: Record<string, Schema> = {
     ticker: Ticker,
+    currency: Currency,
   };
 
   static fromJS<T extends typeof Entity>(
