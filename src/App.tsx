@@ -8,7 +8,7 @@ import '@/style/main.css';
 function App() {
   return (
     <div>
-      <nav>Anansi</nav>
+      <nav>Bluefin trading</nav>
       <main>
         <AsyncBoundary>
           <MatchedRoute index={0} />

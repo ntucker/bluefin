@@ -19,7 +19,7 @@ function CurrencyListItem({ currency }: { currency: Currency }) {
         )}
       </td>
       <td align="left" className={styles.name}>
-        <Link name="AssetDetail" props={{ id: currency.id }}>
+        <Link name="Currency" props={{ id: currency.id }}>
           {currency.name}
           <br />
           <small>{currency.display_name}</small>
