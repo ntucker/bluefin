@@ -1,6 +1,6 @@
 import { useFetch, useQuery, useSuspense } from '@data-client/react';
 
-import { CurrencyList } from '@/components/CurrencyList/CurrencyList';
+import CurrencyList from '@/components/CurrencyList/CurrencyList';
 import { CurrencyResource, queryCurrency } from '@/resources/Currency';
 import { HoldingResource } from '@/resources/Holding';
 import { StatsResource } from '@/resources/Stats';

@@ -1,16 +1,16 @@
 import { AsyncBoundary, useSuspense } from '@data-client/react';
+import { memo } from 'react';
 
 import TradeButtons from '@/components/TradeButtons';
-import { CurrencyResource } from '@/resources/Currency';
+import { Currency, CurrencyResource } from '@/resources/Currency';
 
 import { AssetChart } from './AssetChart';
 import { Price } from './AssetPrice';
 import * as styles from './CurrencyDetail.module.css';
 import { Stats } from './Stats';
 
-export function CurrencyDetail({ width, height, id }: Props) {
-  const product_id = `${id}-USD`;
-  const currency = useSuspense(CurrencyResource.get, { id });
+function CurrencyDetail({ width, height, currency }: Props) {
+  const product_id = `${currency.id}-USD`;
 
   return (
     <>
@@ -43,5 +43,6 @@ export function CurrencyDetail({ width, height, id }: Props) {
 interface Props {
   width: number;
   height: number;
-  id: string;
+  currency: Currency;
 }
+export default memo(CurrencyDetail);

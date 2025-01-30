@@ -13,7 +13,6 @@
 - All values including computed values guaranteed consistent and fresh
 - Zero overfetching
 - Animated live price on asset detail page
-- Insane performance
 
 ### Deviations from instructions
 

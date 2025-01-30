@@ -42,7 +42,7 @@ export class Holding extends Entity {
 
 export const HoldingResource = {
   ...localResource(Holding),
-  buy: new Endpoint(
+  trade: new Endpoint(
     async (id: string, amount: number) => {
       const existing = await (await idb)?.get(Holding.key, id);
       if (!existing) {

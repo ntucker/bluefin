@@ -48,26 +48,6 @@ function LineChart({ data, width = 500, height = 400 }: Props) {
       style={{ overflow: 'visible' }}
     >
       <path d={path} fill="none" stroke="currentColor" strokeWidth="2" />
-      {/* <text
-        stroke="#fff"
-        style={{
-          fontSize: '10px',
-          textAnchor: 'middle',
-          transform: 'translate(30px,10px)',
-        }}
-      >
-        {formatPrice.format(yExtent[1])}
-      </text>
-      <text
-        stroke="#fff"
-        style={{
-          fontSize: '10px',
-          textAnchor: 'middle',
-          transform: `translate(30px,${height - AXIS_HEIGHT}px)`,
-        }}
-      >
-        {formatPrice.format(yExtent[0])}
-      </text> */}
       {ticks.map(({ value, xOffset }, i) => (
         <g key={i} transform={`translate(${xOffset}, ${height - AXIS_HEIGHT})`}>
           <line y2={TICK_LENGTH} stroke="currentColor" />

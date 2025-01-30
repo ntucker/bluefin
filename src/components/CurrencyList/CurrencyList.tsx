@@ -2,6 +2,7 @@ import { Link } from '@anansi/router';
 import { useQuery } from '@data-client/react';
 import { type TableProps } from 'antd';
 import Table from 'antd/es/table';
+import { memo } from 'react';
 
 import { type Currency } from '@/resources/Currency';
 import { Holding } from '@/resources/Holding';
@@ -11,7 +12,7 @@ import TradeButtons from '../TradeButtons';
 import { Price, Gain24 } from './AssetPrice';
 import * as styles from './CurrencyList.module.scss';
 
-export function CurrencyList({ currencies }: { currencies: Currency[] }) {
+function CurrencyList({ currencies }: { currencies: Currency[] }) {
   return (
     <Table<Currency>
       className={styles.table}
@@ -25,6 +26,7 @@ export function CurrencyList({ currencies }: { currencies: Currency[] }) {
     />
   );
 }
+export default memo(CurrencyList);
 
 const columns: TableProps<Currency>['columns'] = [
   {

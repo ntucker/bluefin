@@ -20,10 +20,6 @@ if (typeof window !== 'undefined') {
 } else {
   idb = Promise.resolve(undefined);
 }
-console.log('idb', idb);
-idb.then(db => {
-  console.log('done', db);
-});
 
 export function localResource<
   S extends typeof Entity,

@@ -10,14 +10,14 @@ function TradeButtons({ id, small }: { id: string; small?: boolean }) {
   return (
     <div style={{ float: 'right' }}>
       <Button
-        onClick={() => ctrl.fetch(HoldingResource.buy, id, 1)}
+        onClick={() => ctrl.fetch(HoldingResource.trade, id, 1)}
         size={size}
       >
         Buy
       </Button>
       &nbsp;
       <Button
-        onClick={() => ctrl.fetch(HoldingResource.buy, id, -1)}
+        onClick={() => ctrl.fetch(HoldingResource.trade, id, -1)}
         size={size}
       >
         Sell
