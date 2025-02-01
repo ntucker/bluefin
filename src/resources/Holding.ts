@@ -13,9 +13,10 @@ import { Ticker } from './Ticker';
 /*#__PURE__*/
 export class Holding extends Entity {
   id = '';
+  amount = 0;
+  // client-side join
   currency?: Currency;
   ticker?: Ticker;
-  amount = 0;
 
   get value() {
     return this.amount * (this.ticker?.price || 0);
@@ -31,9 +32,10 @@ export class Holding extends Entity {
     props?: any,
   ): AbstractInstanceType<T> {
     const product_id = `${props?.id}-USD`;
-    // client-side currency and ticker joins
     return super.fromJS({
       ...props,
+      // faked for client-side join
+      // https://dataclient.io/rest/guides/relational-data#client-side-joins
       currency: props?.id,
       ticker: product_id,
     }) as any;

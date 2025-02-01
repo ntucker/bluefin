@@ -9,11 +9,11 @@ import { formatPrice, formatters } from '../formatters';
 export const Price = memo(AssetPrice);
 export const Gain24 = memo(AssetGain24);
 
-function AssetPrice({ product_id }: Props) {
+function AssetPrice({ product_id, multiple = 1 }: Props) {
   useSubscription(getTicker, { product_id });
   const price = useQuery(queryPrice, { product_id });
   if (!price) return <span></span>;
-  return <span>{formatPrice.format(price)}</span>;
+  return <span>{formatPrice.format(price * multiple)}</span>;
 }
 
 function AssetGain24({ product_id }: Props) {
@@ -25,4 +25,5 @@ function AssetGain24({ product_id }: Props) {
 
 interface Props {
   product_id: string;
+  multiple?: number;
 }

@@ -344,6 +344,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ant-design/v5-patch-for-react-19@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@ant-design/v5-patch-for-react-19@npm:1.0.3"
+  peerDependencies:
+    antd: ">=5.22.6"
+    react: ">=19.0.0"
+    react-dom: ">=19.0.0"
+  checksum: 10c0/e3848c929b01a0a29a41e2886f489932e54d9665dd990c60c4b505e21740da2ef0db0d08f4dc7591651fa1f21b15227e7bb40f40280742225b4da74fd18cc899
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.16.0, @babel/code-frame@npm:^7.25.9, @babel/code-frame@npm:^7.26.2, @babel/code-frame@npm:^7.8.3":
   version: 7.26.2
   resolution: "@babel/code-frame@npm:7.26.2"
@@ -5075,6 +5086,7 @@ __metadata:
     "@anansi/eslint-plugin": "npm:1.0.24"
     "@anansi/router": "npm:0.10.11"
     "@anansi/webpack-config": "npm:20.0.17"
+    "@ant-design/v5-patch-for-react-19": "npm:^1.0.3"
     "@babel/core": "npm:7.26.7"
     "@babel/runtime-corejs3": "npm:7.26.7"
     "@data-client/img": "npm:0.14.15"

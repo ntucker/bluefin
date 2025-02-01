@@ -3,25 +3,36 @@ import { Layout, Menu, Spin, Affix, MenuProps } from 'antd';
 import { memo, useMemo } from 'react';
 
 import HoldingsTotal from './Holdings/HoldingsTotal';
+import TradeNav from './TradeNav';
 
 const { Header } = Layout;
 
 function NavBar() {
   const loading = useShowLoading(150);
 
-  const menuItems = useMemo(() => {
+  const leftMenuItems = useMemo(() => {
     const items: MenuProps['items'] = [
       {
         key: 'home',
         label: <Link name="Home">Bluefin Cryptos</Link>,
       },
+    ];
+
+    return items;
+  }, []);
+  const rightMenuItems = useMemo(() => {
+    const items: MenuProps['items'] = [
       {
         key: 'assets',
         label: <HoldingsTotal />,
       },
+      {
+        key: 'trade',
+        label: <TradeNav />,
+      },
     ];
 
-    items.push({
+    items.unshift({
       key: 'loading',
       label: loading && <Spin />,
     });
@@ -31,12 +42,27 @@ function NavBar() {
     <Affix offsetTop={0}>
       <Header className="header">
         <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          selectable={false}
-          items={menuItems}
-        />
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '100%',
+          }}
+        >
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            selectable={false}
+            items={leftMenuItems}
+          />
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            selectable={false}
+            items={rightMenuItems}
+            style={{ marginLeft: 'auto' }}
+          />
+        </div>
       </Header>
     </Affix>
   );

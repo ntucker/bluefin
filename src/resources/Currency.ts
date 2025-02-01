@@ -34,7 +34,7 @@ export class Currency extends Entity {
   // faked for client-side join
   stats = Stats.fromJS();
 
-  get icon() {
+  get icon(): string | undefined {
     return iconTable[this.id]?.img_url;
   }
 

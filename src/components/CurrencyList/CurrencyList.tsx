@@ -4,7 +4,7 @@ import { type TableProps } from 'antd';
 import Table from 'antd/es/table';
 import { memo } from 'react';
 
-import { type Currency } from '@/resources/Currency';
+import { Currency } from '@/resources/Currency';
 import { Holding } from '@/resources/Holding';
 
 import { formatLargePrice } from '../formatters';
@@ -34,9 +34,10 @@ const columns: TableProps<Currency>['columns'] = [
     key: 'icon',
     width: 10,
     align: 'right',
-    render: currency => (
-      <img src={currency.icon} width="20" height="20" alt={currency.name} />
-    ),
+    render: (currency: Currency) =>
+      currency.icon && (
+        <img src={currency.icon} width="20" height="20" alt={currency.name} />
+      ),
   },
   {
     title: 'Name',
