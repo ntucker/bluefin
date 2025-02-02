@@ -1,6 +1,6 @@
 import { Link, useShowLoading } from '@anansi/router';
 import { Layout, Menu, Spin, Affix, MenuProps } from 'antd';
-import { memo, useMemo } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 
 import HoldingsTotal from './Holdings/HoldingsTotal';
 import TradeNav from './TradeNav';
@@ -34,10 +34,14 @@ function NavBar() {
 
     items.unshift({
       key: 'loading',
-      label: loading && <Spin />,
+      label: loading ? <Spin /> : null,
     });
     return items;
   }, [loading]);
+
+  // delay rendering so antd doesn't collapse due to react 19 imcompatibility
+  const delay = useDelay();
+
   return (
     <Affix offsetTop={0}>
       <Header className="header">
@@ -55,16 +59,29 @@ function NavBar() {
             selectable={false}
             items={leftMenuItems}
           />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            selectable={false}
-            items={rightMenuItems}
-            style={{ marginLeft: 'auto' }}
-          />
+          {delay && (
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              selectable={false}
+              items={rightMenuItems}
+              style={{ marginLeft: 'auto' }}
+            />
+          )}
         </div>
       </Header>
     </Affix>
   );
 }
 export default memo(NavBar);
+
+function useDelay() {
+  const [delay, setDelay] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDelay(true);
+    }, 1);
+    return () => clearTimeout(timer);
+  }, []);
+  return delay;
+}
